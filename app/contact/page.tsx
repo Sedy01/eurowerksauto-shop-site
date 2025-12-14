@@ -1,3 +1,5 @@
+import { CONTACT, mapsUrl } from "../lib/contact"
+
 export default function ContactPage() {
     return (
         <>
@@ -5,13 +7,22 @@ export default function ContactPage() {
 
             <div style={{ marginTop: 16}}>
                 <p>
-                    <strong>Phone:</strong> <a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a>
+                    <strong>Phone:</strong> <a href={CONTACT.phoneHref}>{CONTACT.phoneNumber}</a>
                 </p>
                 <p>
-                    <strong>Address:</strong> 6-3090 Woodchester Dr, Mississauga, ON L5L 1W9
+                    <strong>Address:</strong>{" "}
+                    <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                        {CONTACT.address}
+                    </a>
                 </p>
                 <p>
-                    <strong>Hours:</strong> Mon-Fri 9-5, Sat-Sun Closed
+                    <strong>Directions:</strong>{" "}
+                    <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                        Open in Google Maps
+                    </a>
+                </p>
+                <p>
+                    <strong>Hours:</strong> {CONTACT.hours}
                 </p>
             </div>
         </>
