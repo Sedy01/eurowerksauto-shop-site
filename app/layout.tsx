@@ -24,10 +24,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <header style={{ padding: "16px 32px", borderBottom: "1px solid #333" }}>
+          <nav style={{display: "flex", gap: 16, alignItems:"center" }}>
+            <a href="/" style={{ fontWeight: 700, textDecoration: "none" }}>
+              Eurowerks Automotive
+            </a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+          </nav>
+        </header>
+
+        <main style={{ padding: 32}}>{children}</main>
+
+        <footer style={{ padding: "16px 32px", borderTop: "1px solid #333" }}>
+          <small>
+            © {new Date().getFullYear()} Eurowerks Automotive •{" "}
+            <a href="tel:+1XXXXXXXXXX">Call</a>
+          </small>
+        </footer>
       </body>
     </html>
   );
