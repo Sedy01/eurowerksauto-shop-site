@@ -1,8 +1,15 @@
 export default function ServicesPage() {
     return (
-        <main style={{ padding: 32, fontFamily: "system-ui"}}>
-            <h1>Services</h1>
-            <p>Coming Soon!</p>
-        </main>
+        <>
+            <h1>Services:</h1>
+
+            <ul>
+                <li>Oil changes</li>
+                <li>Brakes</li>
+                <li>Tires</li>
+                <li>Diagnostics</li>
+                <li>Maintenance</li>
+            </ul>
+        </>
     );
 }
