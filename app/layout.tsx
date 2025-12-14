@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { CONTACT } from "./lib/contact";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +41,7 @@ export default function RootLayout({
         <footer style={{ padding: "16px 32px", borderTop: "1px solid #333" }}>
           <small>
             © {new Date().getFullYear()} Eurowerks Automotive •{" "}
-            <a href="tel:+1XXXXXXXXXX">Call</a>
+            <a href={CONTACT.phoneHref}>Call {CONTACT.phoneNumber}</a>
           </small>
         </footer>
       </body>
