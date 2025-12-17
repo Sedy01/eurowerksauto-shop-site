@@ -19,7 +19,7 @@ const services = [
     },
     {
         title: "Diagnostics",
-        items: ["Check engine light", "Drivability issues", "No-start / warning lighs"],
+        items: ["Check engine light", "Drivability issues", "No-start / warning lights"],
     },
 ];
 
