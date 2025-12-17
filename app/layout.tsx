@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CONTACT } from "./lib/contact";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +19,12 @@ export const metadata: Metadata = {
   description: "Your Home For European Auto Repair 🇩🇪🏎 | Service, Repair and Modifications 🏁"
 };
 
+const navLinkStyle: React.CSSProperties = {
+  textDecoration: "none",
+  color: "inherit",
+  opacity: 0.9
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,11 +35,23 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <header style={{ padding: "16px 32px", borderBottom: "1px solid #333" }}>
           <nav style={{display: "flex", gap: 16, alignItems:"center" }}>
-            <a href="/" style={{ fontWeight: 700, textDecoration: "none" }}>
+            <Link href="/" style={{ ...navLinkStyle, fontWeight: 700, opacity: 1 }}
+            >
               Eurowerks Automotive
-            </a>
-            <a href="/services">Services</a>
-            <a href="/contact">Contact</a>
+            </Link>
+
+            <Link href="/services" style={navLinkStyle}>
+              Services
+            </Link>
+            <Link href="/about" style={navLinkStyle}>
+              About
+            </Link>
+            <Link href="/gallery" style={navLinkStyle}>
+              Gallery
+            </Link>
+            <Link href="/contact" style={navLinkStyle}>
+              Contact
+            </Link>
           </nav>
         </header>
 
