@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { CONTACT, mapsUrl } from "../lib/contact"
+
+export const metadata: Metadata = {
+    title: "Contact | Eurowerks Automotive",
+    description: "Get in touch! We're here to help."
+};
 
 export default function ContactPage() {
     return (

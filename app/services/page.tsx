@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { CONTACT, mapsUrl } from "../lib/contact";
+
+export const metadata: Metadata = {
+    title: "Services | Eurowerks Automotive",
+    description: "A list of our general services. Contact us for more options."
+};
 
 const services = [
     {
