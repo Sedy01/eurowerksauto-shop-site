@@ -1,7 +1,10 @@
 .fullBleed {
+    position: relative;
+    left: 50%;
+    right: 50%;
     width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .hero {
@@ -328,7 +331,76 @@
 }
 
 @media (max-width: 520px) {
-    .galleryGrid {
-        grid-template-columns: 1fr;
+    .hero {
+        min-height: 64vh;
+    }
+
+    .heroInner {
+        width: calc(100% - 28px);
+        padding: 44px 0;
+    }
+
+    .kicker {
+        font-size: 11px;
+    }
+
+    .title {
+        font-size: 38px;
+    }
+
+    .subtitle {
+        font-size: 15.5px;
+        line-height: 1.45;
+    }
+
+    .ctaRow {
+        gap: 10px;
+    }
+
+    .btnPrimary,
+    .btnSecondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .infoStrip {
+        margin-top: 16px;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .section {
+        margin-top: 22px;
+    }
+
+    .grid3 {
+        gap: 12px;
+    }
+
+    .featureItem {
+        padding: 14px;
+    }
+
+    .galleryRow {
+        gap: 12px;
+    }
+
+    .galleryCard {
+        padding: 14px;
+    }
+
+    .ctaStrip {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 520px) {
+    .nav {
+        padding: 12px 14px;
+        gap: 12px;
+        overflow-x: auto;
     }
 }
