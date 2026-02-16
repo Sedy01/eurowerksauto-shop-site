@@ -5,6 +5,7 @@ import { CONTACT } from "./lib/contact";
 import Link from "next/link";
 import styles from "./layout.module.css";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,7 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Eurowerks Automotive | Mississauga Auto Repair",
-  description: "Your Home For European Auto Repair 🇩🇪🏎 | Service, Repair and Modifications 🏁"
+  description: "Your Home For European Auto Repair 🇩🇪🏎 | Service, Repair and Modifications 🏁",
+  themeColor: "#0b0b0f",
 };
 
 export default function RootLayout({
