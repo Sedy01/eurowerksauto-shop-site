@@ -47,52 +47,54 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.infoStrip}>
-        <div className={styles.card}>
-          <p className={styles.cardTitle}>Address</p>
-          <p className={styles.cardValue}>{CONTACT.address}</p>
-          <p className={styles.subtle}>
+      <section className={styles.sectionPanel}>
+        <div className={styles.infoStrip}>
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.cardGlow}`}>
+            <p className={styles.cardTitle}>Address</p>
+            <p className={styles.cardValue}>{CONTACT.address}</p>
+            <p className={styles.subtle}>
+              <a
+                className={styles.reviewBtn}
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in Maps
+              </a>
+            </p>
+          </div>
+
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.cardGlow}`}>
+            <p className={styles.cardTitle}>Hours</p>
+            <p className={styles.cardValue}>{CONTACT.hours}</p>
+            <p className={styles.subtle}>Mon-Fri serivce. Weekends closed.</p>
+          </div>
+
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.cardGlow}`}>
+            <p className={styles.cardTitle}>Reviews</p>
+
+            <div className={styles.reviewRow}>
+              <span style={{ fontSize: 18, fontWeight: 900 }}>{RATING.toFixed(1)}</span>
+              <StarRow value={RATING} />
+              <span style={{ opacity: 0.85 }}>( {REVIEW_COUNT} reviews)</span>
+            </div>
+
             <a
               className={styles.reviewBtn}
-              href={mapsUrl}
+              href={GOOGLE_REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open in Maps
+              Read reviews on Google
             </a>
-          </p>
-        </div>
-
-        <div className={styles.card}>
-          <p className={styles.cardTitle}>Hours</p>
-          <p className={styles.cardValue}>{CONTACT.hours}</p>
-          <p className={styles.subtle}>Mon-Fri serivce. Weekends closed.</p>
-        </div>
-
-        <div className={styles.card}>
-          <p className={styles.cardTitle}>Reviews</p>
-
-          <div className={styles.reviewRow}>
-            <span style={{ fontSize: 18, fontWeight: 900 }}>{RATING.toFixed(1)}</span>
-            <StarRow value={RATING} />
-            <span style={{ opacity: 0.85 }}>( {REVIEW_COUNT} reviews)</span>
           </div>
-
-          <a
-            className={styles.reviewBtn}
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read reviews on Google
-          </a>
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className={`${styles.section1} ${styles.sectionPanel} ${styles.glassGradient} ${styles.panelGlow}`}>
         <div className={styles.sectionHeader}>
           <div>
-            <h2 className={styles.sectionTtile}>Services</h2>
+            <h2 className={styles.sectionTitle}>Services</h2>
             <p className={styles.sectionDesc}>
               Routine maintenance, diagnostics, and repairs for your vehicle with 
               clear communication and no pressure.
@@ -110,7 +112,7 @@ export default function Home() {
         </div>
 
         <div className={styles.grid3}>
-          <div className={styles.featureItem}>
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.featureItem} ${styles.cardGlow}`}>
             <h3 className={styles.featureTitle}>Maintenance</h3>
             <ul className={styles.featureList}>
               <li>Oil & filter changes</li>
@@ -119,7 +121,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className={styles.featureItem}>
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.featureItem} ${styles.cardGlow}`}>
             <h3 className={styles.featureTitle}>Diagnostics</h3>
             <ul className={styles.featureList}>
               <li>Check engine light</li>
@@ -128,7 +130,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className={styles.featureItem}>
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.featureItem} ${styles.cardGlow}`}>
             <h3 className={styles.featureTitle}>Brakes & Tires</h3>
             <ul className={styles.featureList}>
               <li>Brake inspections</li>
@@ -139,25 +141,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className={`${styles.section} ${styles.sectionPanel} ${styles.glassGradient} ${styles.panelGlow}`}>
         <div className={styles.sectionHeader}>
           <div>
-            <h2 className={styles.sectionTtile}>Gallery</h2>
+            <h2 className={styles.sectionTitle}>Gallery</h2>
             <p className={styles.sectionDesc}>
               A quick look at the shop and some of the work we do.
             </p>
           </div>
 
           <div className={styles.sectionCtaRow}>
-            <a className={styles.sectionDesc}>
+            <a className={styles.btnSecondary} href="/gallery">
               View Gallery
             </a>
           </div>
         </div>
 
         <div className={styles.galleryRow}>
-          <div className={styles.galleryCard}>
-            <h3 className={styles.featureTitle}>Selected works</h3>
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.galleryCard} ${styles.cardGlow}`}>
+            <h3 className={styles.sectionTitle}>Selected works</h3>
 
             <div className={styles.galleryGrid}>
               {[
@@ -187,8 +189,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.galleryCard}>
-            <h3 className={styles.featureTitle}>Need an estimate?</h3>
+          <div className={`${styles.card} ${styles.glassGradient} ${styles.galleryCard} ${styles.cardGlow}`}>
+            <h3 className={styles.sectionTitle}>Need an estimate?</h3>
             <p className={styles.sectionDesc} style={{ marginTop: 10 }}>
               Call or message us! We'll confirm what's needed and next steps.
             </p>
@@ -201,9 +203,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.ctaStrip}>
+      <section className={`${styles.ctaStrip} ${styles.glassGradient} ${styles.cardGlow}`}>
         <div>
-          <p className={styles.ctaStripTitle}>Ready to book?</p>
+          <p className={styles.sectionTitle}>Ready to book?</p>
           <p className={styles.ctaStripSub}>
             Call us and we'll get you scheduled.
           </p>
