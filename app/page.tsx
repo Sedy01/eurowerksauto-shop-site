@@ -1,52 +1,224 @@
 import { CONTACT, mapsUrl } from "./lib/contact";
+import styles from "./page.module.css"
+import Image from "next/image";
 
 
 export default function Home() {
   return (
     <>
-      <h1 style={{ fontSize: 40, marginBottom: 8}}>Eurowerks Automotive</h1>
-      <p style={{ fontSize: 18, marginTop: 0}}>
-        Your Home For European Auto Repair 🇩🇪🏎 | Service, Repair and Modifications 🏁
-        </p>
+      <section className={`${styles.fullBleed} ${styles.hero}`}>
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/hero-poster.jpg"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
 
-        <div style={{ display: "flex", gap: 12, marginTop: 20, flexWrap: "wrap" }}>
-          <a
-            href={CONTACT.phoneHref}
-            style={{
-              padding: "10px 14px",
-              border: "1px solid #444",
-              borderRadius: 8,
-              textDecoration: "none",
-            }}
-          >
-            Call {CONTACT.phoneNumber}
-          </a>
+        <div className={styles.heroOverlay} />
+
+        <div className={styles.heroInner}>
+          <p className={styles.kicker}>European Auto Repair • Mississauga</p>
+
+          <h1 className={styles.title}>Eurowerks Automotive</h1>
+
+          <p className={styles.subtitle}>
+            Your Home For European Auto Repair 🇩🇪🏎 | Service, Repair and Modifications 🏁
+          </p>
+
+          <div className={styles.ctaRow}>
+            <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
+              Call {CONTACT.phoneNumber}
+            </a>
+
+            <a
+              className={styles.btnSecondary}
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.infoStrip}>
+        <div className={styles.card}>
+          <p className={styles.cardTitle}>Address</p>
+          <p className={styles.cardValue}>{CONTACT.address}</p>
+          <p className={styles.subtle}>
+            <a
+              className={styles.reviewBtn}
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open in Maps
+            </a>
+          </p>
+        </div>
+
+        <div className={styles.card}>
+          <p className={styles.cardTitle}>Hours</p>
+          <p className={styles.cardValue}>{CONTACT.hours}</p>
+          <p className={styles.subtle}>Mon-Fri serivce. Weekends closed.</p>
+        </div>
+
+        <div className={styles.card}>
+          <p className={styles.cardTitle}>Reviews</p>
+
+          <div className={styles.reviewRow}>
+            <span style={{ fontSize: 18, fontWeight: 900 }}>{RATING.toFixed(1)}</span>
+            <StarRow value={RATING} />
+            <span style={{ opacity: 0.85 }}>( {REVIEW_COUNT} reviews)</span>
+          </div>
 
           <a
-            href={mapsUrl}
+            className={styles.reviewBtn}
+            href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              padding: "10px 10px",
-              border: "1px solid #444",
-              borderRadius: 8,
-              textDecoration: "none",
-            }}
           >
+            Read reviews on Google
+          </a>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <h2 className={styles.sectionTtile}>Services</h2>
+            <p className={styles.sectionDesc}>
+              Routine maintenance, diagnostics, and repairs for your vehicle with 
+              clear communication and no pressure.
+            </p>
+          </div>
+
+          <div className={styles.sectionCtaRow}>
+            <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
+              Call to book
+            </a>
+            <a className={styles.btnSecondary} href="/services">
+              View all services
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.grid3}>
+          <div className={styles.featureItem}>
+            <h3 className={styles.featureTitle}>Maintenance</h3>
+            <ul className={styles.featureList}>
+              <li>Oil & filter changes</li>
+              <li>Fluid checks</li>
+              <li>Scheduled service</li>
+            </ul>
+          </div>
+
+          <div className={styles.featureItem}>
+            <h3 className={styles.featureTitle}>Diagnostics</h3>
+            <ul className={styles.featureList}>
+              <li>Check engine light</li>
+              <li>Noise / vibration issues</li>
+              <li>Electrical troubleshooting</li>
+            </ul>
+          </div>
+
+          <div className={styles.featureItem}>
+            <h3 className={styles.featureTitle}>Brakes & Tires</h3>
+            <ul className={styles.featureList}>
+              <li>Brake inspections</li>
+              <li>Pads & rotors</li>
+              <li>Tire install & replacement</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <h2 className={styles.sectionTtile}>Gallery</h2>
+            <p className={styles.sectionDesc}>
+              A quick look at the shop and some of the work we do.
+            </p>
+          </div>
+
+          <div className={styles.sectionCtaRow}>
+            <a className={styles.sectionDesc}>
+              View Gallery
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.galleryRow}>
+          <div className={styles.galleryCard}>
+            <h3 className={styles.featureTitle}>Selected works</h3>
+
+            <div className={styles.galleryGrid}>
+              {[
+                "/gallery/black-bmw.jpg",
+                "/gallery/range-rover.jpg",
+                "/gallery/silver-audi.jpg",
+                "/gallery/silver-car.jpg",
+                "/gallery/white-bmw.jpg",
+                "/gallery/white-truck.jpg",
+              ].map((src) => (
+                <div key={src} className={styles.galleryItem}>
+                  <Image 
+                    src={src}
+                    alt="Eurowerks Automotive work"
+                    fill
+                    className={styles.galleryImg}
+                    sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw" 
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.sectionCtaRow}>
+              <a className={styles.btnSecondary} href="/gallery">
+                View full gallery
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.galleryCard}>
+            <h3 className={styles.featureTitle}>Need an estimate?</h3>
+            <p className={styles.sectionDesc} style={{ marginTop: 10 }}>
+              Call or message us! We'll confirm what's needed and next steps.
+            </p>
+            <div className={styles.sectionCtaRow}>
+              <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
+                Call now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.ctaStrip}>
+        <div>
+          <p className={styles.ctaStripTitle}>Ready to book?</p>
+          <p className={styles.ctaStripSub}>
+            Call us and we'll get you scheduled.
+          </p>
+        </div>
+
+        <div className={styles.sectionCtaRow} style={{ marginTop: 0 }}>
+          <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
+            Call {CONTACT.phoneNumber}
+          </a>
+          <a className={styles.btnSecondary} href={mapsUrl} target="_blank" rel="noopener noreferrer">
             Get Directions
           </a>
         </div>
+      </section>
 
-        <div style={{ marginTop: 28}}>
-          <p style={{ marginBottom: 6}}>
-            <strong>Address:</strong> {CONTACT.address}
-          </p>
-          <p style={{ marginTop: 0}}>
-            <strong>Hours:</strong> {CONTACT.hours}
-          </p>
-        </div>
-
-        <ReviewsBlock />
     </>
   );
 }
@@ -65,41 +237,8 @@ function StarRow( { value }: { value: number}) {
   }).join("");
 
   return (
-    <span aria-label={`${value} out of 5 stars`} style={{ letterSpacing: 1 }}>
+    <span aria-label={`${value} out of 5 stars`} className={styles.stars}>
       {stars}
     </span>
-  );
-}
-
-function ReviewsBlock() {
-  return (
-    <section style={{ marginTop: 28 }}>
-      <h2 style={{ fontSize: 22, fontWeight: 800, marginBottom: 10 }}>
-        Reviews
-      </h2>
-
-      <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-        <span style={{ fontSize: 18, fontWeight: 800 }}>{RATING.toFixed(1)}</span>
-        <StarRow value={RATING} />
-        <span style={{ opacity: 0.85 }}>({REVIEW_COUNT} reviews)</span>
-      </div>
-
-      <div style={{ marginTop: 12 }}>
-        <a
-          href={GOOGLE_REVIEWS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ 
-            display: "inline-block",
-            padding: "10px 14px",
-            border: "1px solid #444",
-            borderRadius: 10,
-            textDecoration: "none",
-          }}
-        >
-          Read reviews on Google
-        </a>
-      </div>
-    </section>
   );
 }

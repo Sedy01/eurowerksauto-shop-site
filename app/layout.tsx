@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CONTACT } from "./lib/contact";
 import Link from "next/link";
+import styles from "./layout.module.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +20,6 @@ export const metadata: Metadata = {
   description: "Your Home For European Auto Repair 🇩🇪🏎 | Service, Repair and Modifications 🏁"
 };
 
-const navLinkStyle: React.CSSProperties = {
-  textDecoration: "none",
-  color: "inherit",
-  opacity: 0.9
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,37 +28,40 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header style={{ padding: "16px 32px", borderBottom: "1px solid #333" }}>
-          <nav style={{display: "flex", gap: 16, alignItems:"center" }}>
-            <Link href="/" style={{ ...navLinkStyle, fontWeight: 700, opacity: 1 }}
-            >
+        <header className={styles.header}>
+          <nav className={styles.nav}>
+            <Link href="/" className={`${styles.link} ${styles.brand}`}>
               Eurowerks Automotive
             </Link>
 
-            <Link href="/services" style={navLinkStyle}>
+            <Link href="/services" className={styles.link}>
               Services
             </Link>
-            <Link href="/about" style={navLinkStyle}>
+            <Link href="/about" className={styles.link}>
               About
             </Link>
-            <Link href="/gallery" style={navLinkStyle}>
+            <Link href="/gallery" className={styles.link}>
               Gallery
             </Link>
-            <Link href="/contact" style={navLinkStyle}>
+            <Link href="/contact" className={styles.link}>
               Contact
             </Link>
           </nav>
         </header>
 
-        <main style={{ padding: 32}}>{children}</main>
+        <main className={styles.main}>{children}</main>
 
-        <footer style={{ padding: "16px 32px", borderTop: "1px solid #333" }}>
-          <small>
-            © {new Date().getFullYear()} Eurowerks Automotive •{" "}
-            <a href={CONTACT.phoneHref}>Call {CONTACT.phoneNumber}</a>
-          </small>
+        <footer className={styles.footer}>
+          <div className={styles.footerInner}>
+            <small>
+              © {new Date().getFullYear()} Eurowerks Automotive •{" "}
+              <a className={styles.footerLink} href={CONTACT.phoneHref}>
+                Call {CONTACT.phoneNumber}
+              </a>
+            </small>
+          </div>
         </footer>
       </body>
     </html>
-  );
+  )
 }

@@ -1,0 +1,334 @@
+.fullBleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+.hero {
+    position: relative;
+    min-height: 72vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.heroVideo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    transform: scale(1.02);
+    filter: saturate(1.05) contrast(1.05);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.88)),
+        radial-gradient(80% 60% at 50% 25%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
+}
+
+.heroInner {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, calc(100% - 64px));
+    padding: 72px 0;
+}
+
+.kicker {
+    margin: 0 0 10px;
+    letter-spacing: 0.0em;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.title {
+    margin: 0;
+    font-weight: 900;
+    line-height: 1.05;
+    font-size: clamp(40px, 5vw, 68px);
+}
+
+.subtitle {
+    margin: 14px 0 0;
+    max-width: 60ch;
+    font-size: clamp(16px, 2vw, 20px);
+    opacity: 0.92;
+}
+
+.ctaRow {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btnPrimary,
+.btnSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.btnPrimary {
+    background: rgba(225, 29, 72, 0.95);
+    color: white;
+    border: 1px solid rgba(225, 29, 72, 0.6);
+}
+
+.btnPrimary:hover {
+    transform: translateY(-1px);
+    background: rgba(225, 29, 72, 1);
+}
+
+.btnSecondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.btnSecondary:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.afterHero {
+    margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 78vh;
+    }
+}
+
+.infoStrip {
+    margin-top: 22px;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+    border-radius: 18px;
+    padding: 16px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    font-weight: 800;
+}
+
+.cardValue {
+    margin: 10px 0 0;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.subtle {
+    margin-top: 8px;
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+.stars {
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.reviewRow {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.reviewBtn {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.reviewBtn:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+@media (max-width: 900px) {
+    .infoStrip {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section {
+    margin-top: 34px;
+}
+
+.sectionHandler {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.sectionDesc {
+    margin: 8px 0 0;
+    opacity: 0.85;
+    line-height: 1.6;
+    max-width: 70ch;
+}
+
+.grid3 {
+    margin-top: 14px;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.featureItem {
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.featureTitle {
+    margin: 0;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.featureList {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.sectionCtaRow {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.galleryRow {
+    margin-top: 14px;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 2fr 1fr;
+    align-items: stretch;
+}
+
+.galleryCard {
+    border-radius: 18px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.ctaStrip {
+    margin-top: 34px;
+    border-radius: 18px;
+    padding: 18px;
+    background: linear-gradient(
+        90deg,
+        rgba(225, 29, 72, 0,18),
+        rgba(255, 255, 255, 0.04)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.ctaStripTitle {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.ctaStripSub {
+    margin: 6px 0 0;
+    opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+    .grid3 {
+        grid-template-columns: 1fr;
+    }
+    .galleryRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+.galleryGrid {
+    margin-top: 12px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.galleryItem {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.03);
+    aspect-ratio: 4 / 3;
+}
+
+.galleryImg {
+    object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .galleryGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .galleryGrid {
+        grid-template-columns: 1fr;
+    }
+}
