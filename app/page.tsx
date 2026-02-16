@@ -1,6 +1,7 @@
 import { CONTACT, mapsUrl } from "./lib/contact";
 import styles from "./page.module.css"
 import Image from "next/image";
+import ui from "./styles/ui.module.css";
 
 
 export default function Home() {
@@ -31,12 +32,12 @@ export default function Home() {
           </p>
 
           <div className={styles.ctaRow}>
-            <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
+            <a className={ui.btnPrimary} href={CONTACT.phoneHref}>
               Call {CONTACT.phoneNumber}
             </a>
 
             <a
-              className={styles.btnSecondary}
+              className={ui.btnSecondary}
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -47,180 +48,183 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.sectionPanel}>
-        <div className={styles.infoStrip}>
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.cardGlow}`}>
-            <p className={styles.cardTitle}>Address</p>
-            <p className={styles.cardValue}>{CONTACT.address}</p>
-            <p className={styles.subtle}>
+      <div className={`${ui.container} ${ui.stack}`}>      
+
+        <section className={`${ui.sectionPanel} ${ui.glassGradient} ${ui.panelGlow}`}>
+          <div className={styles.infoStrip}>
+            <div className={`${ui.card} ${ui.glassGradient} ${ui.cardGlow}`}>
+              <p className={ui.cardTitle}>Address</p>
+              <p className={ui.cardValue}>{CONTACT.address}</p>
+              <p className={ui.subtle}>
+                <a
+                  className={ui.reviewBtn}
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open in Maps
+                </a>
+              </p>
+            </div>
+
+            <div className={`${ui.card} ${ui.glassGradient} ${ui.cardGlow}`}>
+              <p className={ui.cardTitle}>Hours</p>
+              <p className={ui.cardValue}>{CONTACT.hours}</p>
+              <p className={ui.subtle}>Mon-Fri serivce. Weekends closed.</p>
+            </div>
+
+            <div className={`${ui.card} ${ui.glassGradient} ${ui.cardGlow}`}>
+              <p className={ui.cardTitle}>Reviews</p>
+
+              <div className={ui.reviewRow}>
+                <span style={{ fontSize: 18, fontWeight: 900 }}>{RATING.toFixed(1)}</span>
+                <StarRow value={RATING} />
+                <span style={{ opacity: 0.85 }}>( {REVIEW_COUNT} reviews)</span>
+              </div>
+
               <a
-                className={styles.reviewBtn}
-                href={mapsUrl}
+                className={ui.reviewBtn}
+                href={GOOGLE_REVIEWS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open in Maps
+                Read reviews on Google
               </a>
-            </p>
+            </div>
           </div>
+        </section>
 
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.cardGlow}`}>
-            <p className={styles.cardTitle}>Hours</p>
-            <p className={styles.cardValue}>{CONTACT.hours}</p>
-            <p className={styles.subtle}>Mon-Fri serivce. Weekends closed.</p>
-          </div>
-
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.cardGlow}`}>
-            <p className={styles.cardTitle}>Reviews</p>
-
-            <div className={styles.reviewRow}>
-              <span style={{ fontSize: 18, fontWeight: 900 }}>{RATING.toFixed(1)}</span>
-              <StarRow value={RATING} />
-              <span style={{ opacity: 0.85 }}>( {REVIEW_COUNT} reviews)</span>
+        <section className={`${ui.sectionPanel} ${ui.sectionPanel} ${ui.glassGradient} ${ui.panelGlow}`}>
+          <div className={styles.sectionHeader}>
+            <div>
+              <h2 className={ui.sectionTitle}>Services</h2>
+              <p className={ui.sectionDesc}>
+                Routine maintenance, diagnostics, and repairs for your vehicle with 
+                clear communication and no pressure.
+              </p>
             </div>
 
-            <a
-              className={styles.reviewBtn}
-              href={GOOGLE_REVIEWS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read reviews on Google
-            </a>
+            <div className={ui.sectionCtaRow}>
+              <a className={ui.btnPrimary} href={CONTACT.phoneHref}>
+                Call to book
+              </a>
+              <a className={ui.btnSecondary} href="/services">
+                View all services
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section className={`${styles.section1} ${styles.sectionPanel} ${styles.glassGradient} ${styles.panelGlow}`}>
-        <div className={styles.sectionHeader}>
+          <div className={ui.grid3}>
+            <div className={`${ui.card} ${ui.glassGradient} ${styles.featureItem} ${ui.cardGlow}`}>
+              <h3 className={styles.featureTitle}>Maintenance</h3>
+              <ul className={styles.featureList}>
+                <li>Oil & filter changes</li>
+                <li>Fluid checks</li>
+                <li>Scheduled service</li>
+              </ul>
+            </div>
+
+            <div className={`${ui.card} ${ui.glassGradient} ${styles.featureItem} ${ui.cardGlow}`}>
+              <h3 className={styles.featureTitle}>Diagnostics</h3>
+              <ul className={styles.featureList}>
+                <li>Check engine light</li>
+                <li>Noise / vibration issues</li>
+                <li>Electrical troubleshooting</li>
+              </ul>
+            </div>
+
+            <div className={`${ui.card} ${ui.glassGradient} ${styles.featureItem} ${ui.cardGlow}`}>
+              <h3 className={styles.featureTitle}>Brakes & Tires</h3>
+              <ul className={styles.featureList}>
+                <li>Brake inspections</li>
+                <li>Pads & rotors</li>
+                <li>Tire install & replacement</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className={`${ui.sectionPanel} ${ui.sectionPanel} ${ui.glassGradient} ${ui.panelGlow}`}>
+          <div className={styles.sectionHeader}>
+            <div>
+              <h2 className={ui.sectionTitle}>Gallery</h2>
+              <p className={ui.sectionDesc}>
+                A quick look at the shop and some of the work we do.
+              </p>
+            </div>
+
+            <div className={ui.sectionCtaRow}>
+              <a className={ui.btnSecondary} href="/gallery">
+                View Gallery
+              </a>
+            </div>
+          </div>
+
+          <div className={ui.galleryRow}>
+            <div className={`${ui.card} ${ui.glassGradient} ${styles.galleryCard} ${ui.cardGlow}`}>
+              <h3 className={ui.sectionTitle}>Selected works</h3>
+
+              <div className={ui.galleryGrid}>
+                {[
+                  "/gallery/black-bmw.jpg",
+                  "/gallery/range-rover.jpg",
+                  "/gallery/silver-audi.jpg",
+                  "/gallery/silver-car.jpg",
+                  "/gallery/white-bmw.jpg",
+                  "/gallery/white-truck.jpg",
+                ].map((src) => (
+                  <div key={src} className={ui.galleryItem}>
+                    <Image 
+                      src={src}
+                      alt="Eurowerks Automotive work"
+                      fill
+                      className={ui.galleryImg}
+                      sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw" 
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className={ui.sectionCtaRow}>
+                <a className={ui.btnSecondary} href="/gallery">
+                  View full gallery
+                </a>
+              </div>
+            </div>
+
+            <div className={`${ui.card} ${ui.glassGradient} ${styles.galleryCard} ${ui.cardGlow}`}>
+              <h3 className={ui.sectionTitle}>Need an estimate?</h3>
+              <p className={ui.sectionDesc} style={{ marginTop: 10 }}>
+                Call or message us! We'll confirm what's needed and next steps.
+              </p>
+              <div className={ui.sectionCtaRow}>
+                <a className={ui.btnPrimary} href={CONTACT.phoneHref}>
+                  Call now
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={`${ui.ctaStrip} ${ui.glassGradient} ${ui.cardGlow}`}>
           <div>
-            <h2 className={styles.sectionTitle}>Services</h2>
-            <p className={styles.sectionDesc}>
-              Routine maintenance, diagnostics, and repairs for your vehicle with 
-              clear communication and no pressure.
+            <p className={ui.sectionTitle}>Ready to book?</p>
+            <p className={ui.ctaStripSub}>
+              Call us and we'll get you scheduled.
             </p>
           </div>
 
-          <div className={styles.sectionCtaRow}>
-            <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
-              Call to book
+          <div className={ui.sectionCtaRow} style={{ marginTop: 0 }}>
+            <a className={ui.btnPrimary} href={CONTACT.phoneHref}>
+              Call {CONTACT.phoneNumber}
             </a>
-            <a className={styles.btnSecondary} href="/services">
-              View all services
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.grid3}>
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.featureItem} ${styles.cardGlow}`}>
-            <h3 className={styles.featureTitle}>Maintenance</h3>
-            <ul className={styles.featureList}>
-              <li>Oil & filter changes</li>
-              <li>Fluid checks</li>
-              <li>Scheduled service</li>
-            </ul>
-          </div>
-
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.featureItem} ${styles.cardGlow}`}>
-            <h3 className={styles.featureTitle}>Diagnostics</h3>
-            <ul className={styles.featureList}>
-              <li>Check engine light</li>
-              <li>Noise / vibration issues</li>
-              <li>Electrical troubleshooting</li>
-            </ul>
-          </div>
-
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.featureItem} ${styles.cardGlow}`}>
-            <h3 className={styles.featureTitle}>Brakes & Tires</h3>
-            <ul className={styles.featureList}>
-              <li>Brake inspections</li>
-              <li>Pads & rotors</li>
-              <li>Tire install & replacement</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.sectionPanel} ${styles.glassGradient} ${styles.panelGlow}`}>
-        <div className={styles.sectionHeader}>
-          <div>
-            <h2 className={styles.sectionTitle}>Gallery</h2>
-            <p className={styles.sectionDesc}>
-              A quick look at the shop and some of the work we do.
-            </p>
-          </div>
-
-          <div className={styles.sectionCtaRow}>
-            <a className={styles.btnSecondary} href="/gallery">
-              View Gallery
+            <a className={ui.btnSecondary} href={mapsUrl} target="_blank" rel="noopener noreferrer">
+              Get Directions
             </a>
           </div>
-        </div>
-
-        <div className={styles.galleryRow}>
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.galleryCard} ${styles.cardGlow}`}>
-            <h3 className={styles.sectionTitle}>Selected works</h3>
-
-            <div className={styles.galleryGrid}>
-              {[
-                "/gallery/black-bmw.jpg",
-                "/gallery/range-rover.jpg",
-                "/gallery/silver-audi.jpg",
-                "/gallery/silver-car.jpg",
-                "/gallery/white-bmw.jpg",
-                "/gallery/white-truck.jpg",
-              ].map((src) => (
-                <div key={src} className={styles.galleryItem}>
-                  <Image 
-                    src={src}
-                    alt="Eurowerks Automotive work"
-                    fill
-                    className={styles.galleryImg}
-                    sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw" 
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.sectionCtaRow}>
-              <a className={styles.btnSecondary} href="/gallery">
-                View full gallery
-              </a>
-            </div>
-          </div>
-
-          <div className={`${styles.card} ${styles.glassGradient} ${styles.galleryCard} ${styles.cardGlow}`}>
-            <h3 className={styles.sectionTitle}>Need an estimate?</h3>
-            <p className={styles.sectionDesc} style={{ marginTop: 10 }}>
-              Call or message us! We'll confirm what's needed and next steps.
-            </p>
-            <div className={styles.sectionCtaRow}>
-              <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
-                Call now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.ctaStrip} ${styles.glassGradient} ${styles.cardGlow}`}>
-        <div>
-          <p className={styles.sectionTitle}>Ready to book?</p>
-          <p className={styles.ctaStripSub}>
-            Call us and we'll get you scheduled.
-          </p>
-        </div>
-
-        <div className={styles.sectionCtaRow} style={{ marginTop: 0 }}>
-          <a className={styles.btnPrimary} href={CONTACT.phoneHref}>
-            Call {CONTACT.phoneNumber}
-          </a>
-          <a className={styles.btnSecondary} href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            Get Directions
-          </a>
-        </div>
-      </section>
-
+        </section>
+      
+      </div>
     </>
   );
 }
@@ -239,7 +243,7 @@ function StarRow( { value }: { value: number}) {
   }).join("");
 
   return (
-    <span aria-label={`${value} out of 5 stars`} className={styles.stars}>
+    <span aria-label={`${value} out of 5 stars`} className={ui.stars}>
       {stars}
     </span>
   );
