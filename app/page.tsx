@@ -3,27 +3,24 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import ui from "./styles/ui.module.css";
 import PageShell from "./components/PageShell";
-import QuickDock from "./components/QuickDock";
 
 
 export default function Home() {
   return (
     <PageShell width="wide">
-      <QuickDock label="Quick Info" heroSelector="#hero">
-        <div className={ui.quickDockList}>
-          <a className={ui.quickDockItemPrimary} href={CONTACT.phoneHref}>
-            Call
-          </a>
-          <a
-            className={ui.quickDockItem}
-            href={mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+      <div className={styles.dropDown}>
+        <button type="button" className={`${ui.btnPrimary} ${styles.dropBtn}`}>
+          Quick Info
+        </button>
+
+        <div className={styles.dropDownContent}>
+          <a className={ui.btnSecondary} href={CONTACT.phoneHref}>Call</a>
+          <a className={ui.btnSecondary} href={mapsUrl} target="_blank" rel="noopener noreferrer">
             Directions
           </a>
         </div>
-      </QuickDock>
+      </div>
 
       <section id="hero" className={`${styles.fullBleed} ${styles.hero}`}>
         <video

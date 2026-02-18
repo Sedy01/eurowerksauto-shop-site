@@ -104,6 +104,43 @@
     line-height: 1.6;
 }
 
+.dropDown {
+  position: fixed;
+  top: 72px;
+  right: 16px;
+  z-index: 9999;
+  display: inline-block;
+}
+
+.dropBtn {
+  white-space: nowrap;
+}
+
+.dropDownContent {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  gap: 10px;
+  flex-direction: column;
+  padding: 0;
+}
+
+.dropDownContent::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+}
+
+.dropDown:hover .dropDownContent,
+.dropDown:focus-within .dropDownContent {
+  display: flex;
+}
+
+
 @media (max-width: 520px) {
     .hero {
         min-height: 64vh;

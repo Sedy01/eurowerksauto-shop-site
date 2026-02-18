@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import styles from "./layout.module.css";
-import { CONTACT, mapsUrl } from "./lib/contact";
-import QuickDock from "./components/QuickDock";
+import { CONTACT } from "./lib/contact";
 import ui from "./styles/ui.module.css";
 
 
@@ -52,24 +51,6 @@ export default function RootLayout({
             </Link>
           </nav>
         </header>
-
-        <QuickDock label="Quick Info" heroSelector="#hero">
-          <div className={`${ui.sectionPanel} ${ui.glassGradient} ${ui.cardGlow}`}>
-            <div className={ui.sectionCtaRow} style={{ marginTop: 0 }}>
-              <a className={ui.btnPrimary} href={CONTACT.phoneHref}>
-                Call
-              </a>
-              <a
-                className={ui.btnSecondary}
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Directions
-              </a>
-            </div>
-          </div>
-        </QuickDock>
 
         <main className={styles.main}>{children}</main>
 
